@@ -55,7 +55,7 @@ def main():
                              stdout=subprocess.DEVNULL))
     try:
         source.wait()
-    except Exception:
+    except (Exception, KeyboardInterrupt):
         source.terminate()
     for p in replicas:
         p.terminate()
